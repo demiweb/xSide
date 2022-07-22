@@ -731,6 +731,20 @@
 }
 
 @media screen and (max-width: 525px) {
+  .call-us .message {
+    pointer-events: none;
+  }
+  .single-soc {
+    width: 27px;
+    height: 27px;
+    padding: 2px;
+  }
+  .call-us {
+    width: 70px;
+    height: 70px;
+    right: 20px;
+    bottom: 20px;
+  }
   .title i {
     line-height: 1.4;
   }

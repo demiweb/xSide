@@ -2134,7 +2134,6 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
   left: -20%; }
 
 .preloader {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -2161,52 +2160,150 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
 
 .svg-cont {
   width: 540px;
-  height: auto; }
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-14%, -56%);
+      -ms-transform: translate(-14%, -56%);
+          transform: translate(-14%, -56%); }
   .svg-cont svg {
     width: 100%;
     height: auto; }
     .svg-cont svg path {
       opacity: 0; }
-      .svg-cont svg path.lustr {
-        opacity: 1; }
-      .svg-cont svg path.spam.go {
-        -webkit-animation: lustraGo 4s linear forwards;
-                animation: lustraGo 4s linear forwards; }
+      .svg-cont svg path.xmark {
+        -webkit-animation: lustraGo 4.4s linear forwards;
+                animation: lustraGo 4.4s linear forwards; }
+
+.preload-line {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px; }
+  .preload-line .wrapper-pr {
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    clip: rect(0px, 220px, 220px, 110px); }
+    .preload-line .wrapper-pr::after {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+      content: '';
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box; }
+  .preload-line .circle {
+    width: 100%;
+    height: 100%;
+    border: 6px solid #E95627;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    clip: rect(0px, 110px, 220px, 0px);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    -webkit-transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%;
+            transform-origin: 50% 50%; }
+  .preload-line p {
+    font-size: 20px;
+    line-height: 1.2;
+    color: #fff; }
+
+div[data-anim~=base] {
+  -webkit-animation-iteration-count: 1;
+  /* Only run once */
+  -webkit-animation-fill-mode: forwards;
+  /* Hold the last keyframe */
+  -webkit-animation-timing-function: linear;
+  /* Linear animation */ }
+
+.wrapper-pr[data-anim~=wrapper] {
+  -webkit-animation-duration: 0.01s;
+  /* Complete keyframes asap */
+  -webkit-animation-delay: 1.8s;
+  /* Wait half of the animation */
+  -webkit-animation-name: close-wrapper;
+  /* Keyframes name */ }
+
+.circle[data-anim~=left] {
+  -webkit-animation-duration: 3.6s;
+  /* Full animation time */
+  -webkit-animation-name: left-spin; }
+
+.circle[data-anim~=right] {
+  -webkit-animation-duration: 1.8s;
+  /* Half animation time */
+  -webkit-animation-name: right-spin; }
+
+/* Rotate the right side of the progress bar from 0 to 180 degrees */
+@-webkit-keyframes right-spin {
+  from {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg); }
+  to {
+    -webkit-transform: translate(-50%, -50%) rotate(180deg); } }
+
+/* Rotate the left side of the progress bar from 0 to 360 degrees */
+@-webkit-keyframes left-spin {
+  from {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg); }
+  to {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg); } }
+
+/* Set the wrapper clip to auto, effectively removing the clip */
+@-webkit-keyframes close-wrapper {
+  to {
+    clip: rect(auto, auto, auto, auto); } }
 
 @-webkit-keyframes lustraGo {
   0% {
     opacity: 0; }
-  5% {
-    opacity: 0; }
-  5% {
+  20% {
     opacity: 1; }
-  8% {
+  35% {
     opacity: 1; }
-  8% {
+  35% {
     opacity: 0; }
-  25% {
+  50% {
     opacity: 0; }
-  25% {
+  50% {
     opacity: 1; }
-  30% {
+  65% {
     opacity: 1; }
-  30% {
+  65% {
     opacity: 0; }
-  38% {
-    opacity: 0; }
-  46% {
-    opacity: 0; }
-  57% {
-    opacity: 0; }
-  57% {
-    opacity: 1; }
-  68% {
-    opacity: 1; }
-  68% {
-    opacity: 0; }
-  78% {
-    opacity: 0; }
-  78% {
+  75% {
     opacity: 1; }
   100% {
     opacity: 1; } }
@@ -2214,40 +2311,62 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
 @keyframes lustraGo {
   0% {
     opacity: 0; }
-  5% {
-    opacity: 0; }
-  5% {
+  20% {
     opacity: 1; }
-  8% {
+  35% {
     opacity: 1; }
-  8% {
+  35% {
     opacity: 0; }
-  25% {
+  50% {
     opacity: 0; }
-  25% {
+  50% {
     opacity: 1; }
-  30% {
+  65% {
     opacity: 1; }
-  30% {
+  65% {
     opacity: 0; }
-  38% {
-    opacity: 0; }
-  46% {
-    opacity: 0; }
-  57% {
-    opacity: 0; }
-  57% {
-    opacity: 1; }
-  68% {
-    opacity: 1; }
-  68% {
-    opacity: 0; }
-  78% {
-    opacity: 0; }
-  78% {
+  75% {
     opacity: 1; }
   100% {
     opacity: 1; } }
+
+.preloader.hide .preload-line {
+  opacity: 0;
+  -webkit-transition: opacity 0.4s ease;
+  -o-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease; }
+
+.preloader.hide .svg-cont {
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  -o-transition: transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-transform: translate(-50%, -56%);
+      -ms-transform: translate(-50%, -56%);
+          transform: translate(-50%, -56%); }
+  .preloader.hide .svg-cont svg path {
+    -webkit-transition: opacity 0.3s ease;
+    -o-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+    -webkit-transition-delay: 0.4s;
+         -o-transition-delay: 0.4s;
+            transition-delay: 0.4s;
+    opacity: 1 !important; }
+
+.preloader.hide.remove {
+  -webkit-transform: translate(0, -110%);
+      -ms-transform: translate(0, -110%);
+          transform: translate(0, -110%);
+  -webkit-transition: -webkit-transform 0.6s ease;
+  transition: -webkit-transform 0.6s ease;
+  -o-transition: transform 0.6s ease;
+  transition: transform 0.6s ease;
+  transition: transform 0.6s ease, -webkit-transform 0.6s ease; }
+  .preloader.hide.remove .svg-cont {
+    -webkit-transform: translate(-50%, 140%);
+        -ms-transform: translate(-50%, 140%);
+            transform: translate(-50%, 140%); }
 
 .header {
   width: 100%;
@@ -4596,6 +4715,17 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
         content: ''; } }
 
 @media screen and (max-width: 525px) {
+  .call-us .message {
+    pointer-events: none; }
+  .single-soc {
+    width: 27px;
+    height: 27px;
+    padding: 2px; }
+  .call-us {
+    width: 70px;
+    height: 70px;
+    right: 20px;
+    bottom: 20px; }
   .title i {
     line-height: 1.4; }
   .slider-photo .btn-prev {

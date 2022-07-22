@@ -225,7 +225,7 @@ function delayHero() {
     }
 }
 
-delayHero();
+// delayHero();
 
 //hero anims
 
@@ -530,16 +530,26 @@ let preloaderBlock = document.querySelector('.preloader');
 let spamsPath = [...document.querySelectorAll('.svg-cont svg .spam')];
 function preloaderStart() {
     if (preloaderBlock) {
+        document.body.classList.add('no-scroll');
         var w =0,
             t = setInterval(function() {
             w = w + 1;
             document.querySelector('.preload-line p').textContent = w+'%';
-            document.querySelector('.preload-line').style.width = w+'%';
+            // document.querySelector('.preload-line').style.width = w+'%';
             if (w === 100){
-                preloaderBlock.classList.add('hide');
+
+
                 clearInterval(t);
+                setTimeout(() => {
+                    preloaderBlock.classList.add('hide');
+                }, 300)
+                setTimeout(() => {
+                    preloaderBlock.classList.add('remove');
+                    document.body.classList.add('no-scroll');
+                    delayHero();
+                }, 1200)
             }
-        }, 30);
+        }, 34);
         setTimeout(() => {
             spamsPath.forEach((btn, k) => {
                 setTimeout(() => {

@@ -1139,11 +1139,13 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
 .fancybox__toolbar__items {
   .carousel__button {
     display: none !important;
+
     &.fancybox__button--close, &.fancybox__button--fullscreen {
       display: block !important;
     }
   }
 }
+
 .custom-file-upload {
   width: 100%;
   display: flex;
@@ -1153,6 +1155,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
   color: #fff;
   margin-bottom: 20px;
   text-decoration: underline;
+
   &::before {
     width: 34px;
     height: 34px;
@@ -1164,9 +1167,11 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
 
   }
 }
+
 .fancybox__thumbs .carousel__slide .fancybox__thumb::after {
   border-color: #E95627 !important;
 }
+
 .form {
   width: 100%;
 
@@ -1680,15 +1685,18 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
       }
     }
   }
+
   .message {
     left: auto;
     right: 0;
+
     &::before {
       left: auto;
       right: 40px;
       transform: translate(0, -4px) rotate(90deg) rotateX(180deg);
     }
   }
+
   .img {
     position: relative;
     z-index: 2;
@@ -1839,7 +1847,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
 }
 
 .preloader {
-  display: none;
+  //display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -1850,6 +1858,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
   padding: 20px;
   box-sizing: border-box;
 }
+
 .preloader-cont {
   width: 100%;
   height: 100%;
@@ -1857,24 +1866,146 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
 }
+
 .svg-cont {
   width: 540px;
   height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-14%, -56%);
+
   svg {
     width: 100%;
     height: auto;
+
     path {
       opacity: 0;
+
       &.lustr {
-        opacity: 1;
+        //opacity: 1;
       }
+
       &.spam {
         &.go {
-          animation: lustraGo 4s linear forwards;
+          //animation: lustraGo 4s linear forwards;
         }
 
       }
+
+      &.xmark {
+        animation: lustraGo 4.4s linear forwards;
+      }
     }
+  }
+}
+
+.preload-line {
+  width: 220px;
+  height: 220px;
+  //border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 20px;
+
+  .wrapper-pr {
+    &::after {
+      //border: 6px solid rgba(255, 255, 255, 0.3);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+      content: '';
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-sizing: border-box;
+    }
+
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    clip: rect(0px, 220px, 220px, 110px);
+  }
+
+  .circle {
+    width: 100%;
+    height: 100%;
+    border: 6px solid #E95627;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    clip: rect(0px, 110px, 220px, 0px);
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 1.2;
+    color: #fff;
+
+  }
+}
+
+div[data-anim~=base] {
+  -webkit-animation-iteration-count: 1; /* Only run once */
+  -webkit-animation-fill-mode: forwards; /* Hold the last keyframe */
+  -webkit-animation-timing-function: linear; /* Linear animation */
+}
+
+.wrapper-pr[data-anim~=wrapper] {
+  -webkit-animation-duration: 0.01s; /* Complete keyframes asap */
+  -webkit-animation-delay: 1.8s; /* Wait half of the animation */
+  -webkit-animation-name: close-wrapper; /* Keyframes name */
+}
+
+.circle[data-anim~=left] {
+  -webkit-animation-duration: 3.6s; /* Full animation time */
+  -webkit-animation-name: left-spin;
+}
+
+.circle[data-anim~=right] {
+  -webkit-animation-duration: 1.8s; /* Half animation time */
+  -webkit-animation-name: right-spin;
+}
+
+/* Rotate the right side of the progress bar from 0 to 180 degrees */
+@-webkit-keyframes right-spin {
+  from {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%) rotate(180deg);
+  }
+}
+
+/* Rotate the left side of the progress bar from 0 to 360 degrees */
+@-webkit-keyframes left-spin {
+  from {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Set the wrapper clip to auto, effectively removing the clip */
+@-webkit-keyframes close-wrapper {
+  to {
+    clip: rect(auto, auto, auto, auto);
   }
 }
 
@@ -1882,61 +2013,66 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
   0% {
     opacity: 0;
   }
-  5% {
+  20% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 1;
+  }
+  35% {
     opacity: 0;
   }
-  5% {
-    opacity: 1;
-  }
-  8% {
-    opacity: 1;
-  }
-  8% {
+  50% {
     opacity: 0;
   }
-  25% {
+  50% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  65% {
     opacity: 0;
   }
-  25% {
+  75% {
     opacity: 1;
-  }
-  30% {
-    opacity: 1;
-  }
-  30% {
-    opacity:0;
-  }
-  38% {
-    opacity:0;
-  }
-
-
-  46% {
-    opacity:0;
-  }
-  57% {
-    opacity:0;
-  }
-  57% {
-    opacity:1;
-  }
-  68% {
-    opacity:1;
-  }
-  68% {
-    opacity:0;
-  }
-  78% {
-    opacity:0;
-  }
-  78% {
-    opacity:1;
   }
   100% {
-    opacity:1;
+    opacity: 1;
   }
 
 
+}
+
+.preloader {
+  &.hide {
+    .preload-line {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .svg-cont {
+      transition: transform 0.5s ease;
+      transform: translate(-50%, -56%);
+
+      svg {
+        path {
+          transition: opacity 0.3s ease;
+          transition-delay: 0.4s;
+          opacity: 1 !important;
+        }
+      }
+    }
+
+    &.remove {
+      transform: translate(0, -110%);
+      transition: transform 0.6s ease;
+      .svg-cont {
+        transform: translate(-50%, 140%);
+      }
+    }
+
+  }
 }
 
 @import "header";
