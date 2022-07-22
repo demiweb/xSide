@@ -2355,18 +2355,18 @@ div[data-anim~=base] {
     opacity: 1 !important; }
 
 .preloader.hide.remove {
-  -webkit-transform: translate(0, -110%);
-      -ms-transform: translate(0, -110%);
-          transform: translate(0, -110%);
-  -webkit-transition: -webkit-transform 0.6s ease;
-  transition: -webkit-transform 0.6s ease;
-  -o-transition: transform 0.6s ease;
-  transition: transform 0.6s ease;
-  transition: transform 0.6s ease, -webkit-transform 0.6s ease; }
+  -webkit-transform: translate(0, -120%);
+      -ms-transform: translate(0, -120%);
+          transform: translate(0, -120%);
+  -webkit-transition: -webkit-transform 0.7s ease;
+  transition: -webkit-transform 0.7s ease;
+  -o-transition: transform 0.7s ease;
+  transition: transform 0.7s ease;
+  transition: transform 0.7s ease, -webkit-transform 0.7s ease; }
   .preloader.hide.remove .svg-cont {
-    -webkit-transform: translate(-50%, 140%);
-        -ms-transform: translate(-50%, 140%);
-            transform: translate(-50%, 140%); }
+    -webkit-transform: translate(-50%, 100%);
+        -ms-transform: translate(-50%, 100%);
+            transform: translate(-50%, 100%); }
 
 .header {
   width: 100%;
@@ -4626,6 +4626,17 @@ div[data-anim~=base] {
     line-height: 1.2; } }
 
 @media screen and (max-width: 625px) {
+  .modal-cont .title {
+    width: 100%; }
+  .svg-cont {
+    width: 90%; }
+  .preload-line {
+    width: 170px;
+    height: 170px; }
+    .preload-line .wrapper-pr {
+      clip: rect(0px, 170px, 170px, 85px); }
+    .preload-line .circle {
+      clip: rect(0px, 85px, 170px, 0px); }
   .custom-file-upload {
     font-size: 16px; }
   .grid .title {

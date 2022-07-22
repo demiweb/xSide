@@ -545,7 +545,7 @@ function preloaderStart() {
                 }, 300)
                 setTimeout(() => {
                     preloaderBlock.classList.add('remove');
-                    document.body.classList.add('no-scroll');
+                    document.body.classList.remove('no-scroll');
                     delayHero();
                 }, 1200)
             }
