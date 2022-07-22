@@ -526,6 +526,31 @@ window.addEventListener('scroll', () => {
     // parallsRoll();
 });
 
+let preloaderBlock = document.querySelector('.preloader');
+let spamsPath = [...document.querySelectorAll('.svg-cont svg .spam')];
+function preloaderStart() {
+    if (preloaderBlock) {
+        var w =0,
+            t = setInterval(function() {
+            w = w + 1;
+            document.querySelector('.preload-line p').textContent = w+'%';
+            document.querySelector('.preload-line').style.width = w+'%';
+            if (w === 100){
+                preloaderBlock.classList.add('hide');
+                clearInterval(t);
+            }
+        }, 30);
+        setTimeout(() => {
+            spamsPath.forEach((btn, k) => {
+                setTimeout(() => {
+                    btn.classList.add('go');
+                }, 20 * k)
+            })
+        }, 1200);
+
+    }
+}
+preloaderStart();
 //sliders
 let miniCatlSld = [...document.querySelectorAll('.slider-photo.js-slider')];
 
@@ -539,7 +564,7 @@ function miniCatSlider() {
             let sldPrev = sld.querySelector('.btn-prev');
             const swiper2 = new Swiper(sldCont, {
                 // Optional parameters
-                loop: true,
+                loop: false,
                 slidesPerView: 2,
                 slidesPerGroup: 1,
                 speed: 600,

@@ -34,26 +34,26 @@
     width: calc((100% / 3) - (14% / 3));
   }
   .single-facade .cont .text {
-    padding: 0 10px 0 20px;
+    padding: 6px 10px 0 20px;
     span {
       font-size: 26px;
-      line-height: 1.05;
-      margin-bottom: 3px;
+      line-height: 1.2;
+      margin-bottom: 7px;
     }
     p {
       font-size: 16px;
-      line-height: 1;
+      line-height: 1.2;
     }
   }
   .single-pretty {
     &::before {
       font-size: 74px;
-      line-height: 1;
+      line-height: 1.2;
     }
 
     span {
       font-size: 28px;
-      line-height: 1.05;
+      line-height: 1.2;
     }
 
     p {
@@ -97,7 +97,7 @@
   }
   .title {
     font-size: 42px;
-    line-height: 1;
+    line-height: 1.2;
   }
 }
 
@@ -207,7 +207,7 @@
   }
   .single-step .text span {
     font-size: 26px;
-    line-height: 1.05;
+    line-height: 1.2;
   }
 
 }
@@ -248,7 +248,7 @@
   }
   .about-us__cont .text .paragraphs p {
     font-size: 14px;
-    line-height: 1.1;
+    line-height: 1.2;
   }
   .hero-anims .word {
     width: 86px;
@@ -291,11 +291,11 @@
       .text {
         span {
           font-size: 20px;
-          line-height: 1.05;
+          line-height: 1.2;
         }
         p {
           font-size: 12px;
-          line-height: 1.05;
+          line-height: 1.2;
         }
       }
     }
@@ -423,7 +423,7 @@
   }
   .menu-container p, .menu-container a {
     font-size: 12px;
-    line-height: 1.05;
+    line-height: 1.2;
   }
 }
 @media screen and (max-width: 900px) {
@@ -448,7 +448,7 @@
   }
   .single-step::before {
     font-size: 54px;
-    line-height: 1.1;
+    line-height: 1.2;
   }
   .single-step {
     margin-bottom: 20px;
@@ -485,13 +485,13 @@
   }
   .form form input {
     font-size: 16px;
-    line-height: 1.05;
+    line-height: 1.2;
     padding: 5px 12px;
     height: 48px;
   }
   .form form textarea {
     font-size: 16px;
-    line-height: 1.05;
+    line-height: 1.2;
     padding: 5px 12px;
   }
   .form form .btn {
@@ -500,14 +500,14 @@
   }
   .btn {
     font-size: 18px;
-    line-height: 1.05;
+    line-height: 1.2;
   }
   .facade-types__cont .top {
     p {
       position: static;
       margin-top: 12px;
       font-size: 12px;
-      line-height: 1.05;
+      line-height: 1.2;
     }
   }
   .single-facade {
@@ -534,7 +534,7 @@
   }
   .modal-cont .title {
     font-size: 20px;
-    line-height: 1.1;
+    line-height: 1.2;
     margin-bottom: 18px;
   }
   .video-bg {
@@ -571,12 +571,12 @@
 
       span {
         font-size: 16px;
-        line-height: 1.1;
+        line-height: 1.2;
       }
 
       p {
         font-size: 12px;
-        line-height: 1.1;
+        line-height: 1.2;
       }
     }
   }
@@ -602,7 +602,7 @@
   .hero__content p {
     bottom: 20px;
     font-size: 12px;
-    line-height: 1.1;
+    line-height: 1.2;
   }
   .logo {
     width: 150px;
@@ -610,11 +610,14 @@
   }
   .menu-container p, .menu-container a {
     font-size: 12px;
-    line-height: 1.05;
+    line-height: 1.2;
   }
 }
 
 @media screen and (max-width: 625px) {
+  .custom-file-upload {
+    font-size: 16px;
+  }
   .grid .title {
     font-size: 24px;
   }
@@ -632,7 +635,7 @@
       }
       p {
         font-size: 12px;
-        line-height: 1.1;
+        line-height: 1.2;
       }
     }
   }
@@ -665,7 +668,7 @@
     padding: 0 5px;
     span {
       font-size: 16px;
-      line-height: 1.06;
+      line-height: 1.2;
     }
     p {
       font-size: 12px;
@@ -740,7 +743,7 @@
   .single-pretty {
     p {
       font-size: 12px;
-      line-height: 1.1;
+      line-height: 1.2;
     }
   }
   .grid-steps .grid:nth-child(4) {
