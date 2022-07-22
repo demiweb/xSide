@@ -55,12 +55,41 @@ function allLozadImg() {
 }
 
 allLozadImg();
+function scrollScroll() {
+    if (window.innerWidth > 1000) {
+        const scroll2s = new Scrooth({
+            element: window,
+            strength: 12,
+            acceleration: 1.05,
+            deceleration: 0.975
+        });
+    }
+}
+scrollScroll();
 
-$(window).scroll(function (e) {
-    $el = $('.header');
-    $el.toggleClass('header-fixed', $(this).scrollTop() > 32);
 
-});
+let linkBtn = [...document.querySelectorAll('.open-form')];
+let modalWindow = [...document.querySelectorAll('.modal-window')];
+let modalClose = [...document.querySelectorAll('.modal-close')];
+
+function openModal() {
+    if (modalWindow.length) {
+        linkBtn.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                modalWindow[0].classList.add('visible');
+                document.body.classList.add('no-scroll');
+            })
+        });
+        modalClose.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                modalWindow[0].classList.remove('visible');
+                document.body.classList.add('remove');
+            })
+        })
+    }
+}
+openModal();
+
 
 $(document).ready(function () {
 
@@ -400,7 +429,7 @@ function cardsMovement() {
             let botTop = btn.getBoundingClientRect().bottom;
             // console.log(topTop + ' bot = ' + botTop + ' height ' + window.innerHeight)
             if (topTop <= 0 && botTop >= 0) {
-                let trans = botTop / 8;
+                let trans = botTop / 16;
                 if ((k + 1) % 2 === 0) {
 
                     if (btn.querySelector('img')) {
@@ -439,12 +468,12 @@ function blockMovement() {
             // console.log(topTop + ' bot = ' + botTop + ' height ' + window.innerHeight)
             if (window.innerWidth > 900) {
                 if (topTop <= 0 && botTop >= 0) {
-                    let trans = botTop / 14;
-                    console.log(k + 1);
+                    let trans = botTop / 23;
+                    // console.log(k + 1);
 
-                    console.log((k + 1) % 2 === 0);
+                    // console.log((k + 1) % 2 === 0);
                     if (k === 1 || k === 4) {
-                        console.log('da');
+                        // console.log('da');
                         btn.querySelector('.cont').style.transform = `translate(0, ${trans}px)`;
 
                     } else {
@@ -459,20 +488,26 @@ function blockMovement() {
     }
 }
 
+
 function textMovement() {
     if (cardsText.length) {
-        cardsText.forEach((btn, k) => {
-            let topTop = btn.getBoundingClientRect().top - window.innerHeight;
-            let botTop = btn.getBoundingClientRect().bottom;
+        // console.log(cardsText);
+        cardsText.forEach((btn2, k) => {
+            let topTop = btn2.getBoundingClientRect().top - window.innerHeight;
+            let botTop = btn2.getBoundingClientRect().bottom;
             // console.log(topTop + ' bot = ' + botTop + ' height ' + window.innerHeight)
             if (topTop <= 0 && botTop >= 0) {
                 let trans = botTop / 6;
+                // console.log('da');
                 if ((k + 1) % 2 === 0) {
-                    btn.style.transform = `translate(0, ${trans}px)`;
+                    btn2.querySelector('div').style.transform = `translate(0, ${trans}px)`;
 
                 } else {
+                    // console.log(trans);
+                    // console.log('da2');
                     trans = trans * (-1);
-                    btn.style.transform = `translate(0, -${trans}px)`;
+                    // console.log(trans);
+                    btn2.querySelector('div').style.transform = `translate(0, -${trans}px)`;
 
                 }
             }
