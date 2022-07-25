@@ -109,7 +109,9 @@ let modalClose = [...document.querySelectorAll('.modal-close')];
 function openModal() {
     if (modalWindow.length) {
         linkBtn.forEach((btn) => {
-            btn.addEventListener('click', () => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 modalWindow[0].classList.add('visible');
                 document.body.classList.add('no-scroll');
             })
@@ -473,7 +475,7 @@ function cardsMovement() {
             let botTop = btn.getBoundingClientRect().bottom;
             // console.log(topTop + ' bot = ' + botTop + ' height ' + window.innerHeight)
             if (topTop <= 0 && botTop >= 0) {
-                let trans = botTop / 16;
+                let trans = botTop / 20;
                 if ((k + 1) % 2 === 0) {
 
                     if (btn.querySelector('img')) {

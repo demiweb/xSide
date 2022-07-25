@@ -427,6 +427,16 @@
   }
 }
 @media screen and (max-width: 900px) {
+  body main .help div.rollup {
+    left: auto;
+    right: 0;
+  }
+  body main .help div.rollup {
+    padding: 12px !important;
+  }
+  body main .help div.rollup > * {
+    font-size: 13px !important;
+  }
   .call-us {
     right: 40px;
     width: 100px;

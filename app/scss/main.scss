@@ -560,7 +560,8 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
 
   &--reverse {
     p {
-      margin-left: -8%;
+      font-size: 4.6vw;
+      margin-left: -20%;
     }
   }
 }
@@ -616,7 +617,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
         color: #FFFFFF;
 
         strong {
-          font-weight: 600;
+          font-weight: 400;
           color: #E95627;
         }
       }
@@ -994,11 +995,11 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
       overflow: hidden;
 
       img {
-        width: 125%;
-        height: 125%;
+        width: 135%;
+        height: 135%;
         object-fit: cover;
         position: absolute;
-        top: -19%;
+        top: -32%;
         left: 0;
       }
     }
@@ -1252,6 +1253,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
     color: #E95627;
     background: #fff;
   }
+
   &.btn-download {
     &::before {
       width: 30px;
@@ -1264,6 +1266,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
       transition: filter 0.3s ease;
 
     }
+
     &:hover {
       &::before {
         filter: invert(0);
@@ -1271,6 +1274,11 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
 
       }
     }
+  }
+  &.btn--big {
+    font-size: 38px;
+    line-height: 1.2;
+    padding: 16px 38px;
   }
 }
 
@@ -2088,11 +2096,74 @@ div[data-anim~=base] {
     &.remove {
       transform: translate(0, -120%);
       transition: transform 0.7s ease;
+
       .svg-cont {
         transform: translate(-50%, 100%);
       }
     }
 
+  }
+}
+
+
+body main .help {
+  position: relative;
+  padding-right: 30px;
+  &::after {
+    cursor: pointer;
+    content: '?';
+    color: #E95627;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 20px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #E95627;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    vertical-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+  div.rollup {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 4px;
+    position: absolute;
+    left: 100%;
+    width: 100%;
+    bottom: 100%;
+    background: #fff;
+    color: #272424;
+    font-size: 12px;
+    line-height: 1.1;
+    max-width: 230px;
+    padding: 20px;
+    & > * {
+      margin-bottom: 5px;
+      color: #272424 !important;
+      font-size: 15px !important;
+      line-height: 1.2 !important;
+      font-weight: 500 !important;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &:hover{
+    div.rollup {
+      opacity: 1;
+      pointer-events: none;
+
+      transition: opacity 0.3s ease;
+    }
   }
 }
 
