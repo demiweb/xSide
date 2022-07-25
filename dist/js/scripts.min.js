@@ -66,7 +66,41 @@ function scrollScroll() {
     }
 }
 scrollScroll();
+let preloaderBlock = document.querySelector('.preloader');
+let spamsPath = [...document.querySelectorAll('.svg-cont svg .spam')];
+function preloaderStart() {
+    if (preloaderBlock) {
+        document.body.classList.add('no-scroll');
+        var w =0,
+            t = setInterval(function() {
+                w = w + 1;
+                document.querySelector('.preload-line p').textContent = w+'%';
+                // document.querySelector('.preload-line').style.width = w+'%';
+                if (w === 100){
 
+
+                    clearInterval(t);
+                    setTimeout(() => {
+                        preloaderBlock.classList.add('hide');
+                    }, 300)
+                    setTimeout(() => {
+                        preloaderBlock.classList.add('remove');
+                        document.body.classList.remove('no-scroll');
+                        delayHero();
+                    }, 1200)
+                }
+            }, 34);
+        setTimeout(() => {
+            spamsPath.forEach((btn, k) => {
+                setTimeout(() => {
+                    btn.classList.add('go');
+                }, 20 * k)
+            })
+        }, 1200);
+
+    }
+}
+preloaderStart();
 
 let linkBtn = [...document.querySelectorAll('.open-form')];
 let modalWindow = [...document.querySelectorAll('.modal-window')];
@@ -90,6 +124,16 @@ function openModal() {
 }
 openModal();
 
+let langBtn = [...document.querySelectorAll('.lang > span')];
+
+function openLang() {
+    if (langBtn.length) {
+        langBtn[0].addEventListener('click', () => {
+            langBtn[0].classList.toggle('open');
+        })
+    }
+}
+openLang();
 
 $(document).ready(function () {
 
@@ -526,41 +570,7 @@ window.addEventListener('scroll', () => {
     // parallsRoll();
 });
 
-let preloaderBlock = document.querySelector('.preloader');
-let spamsPath = [...document.querySelectorAll('.svg-cont svg .spam')];
-function preloaderStart() {
-    if (preloaderBlock) {
-        document.body.classList.add('no-scroll');
-        var w =0,
-            t = setInterval(function() {
-            w = w + 1;
-            document.querySelector('.preload-line p').textContent = w+'%';
-            // document.querySelector('.preload-line').style.width = w+'%';
-            if (w === 100){
 
-
-                clearInterval(t);
-                setTimeout(() => {
-                    preloaderBlock.classList.add('hide');
-                }, 300)
-                setTimeout(() => {
-                    preloaderBlock.classList.add('remove');
-                    document.body.classList.remove('no-scroll');
-                    delayHero();
-                }, 1200)
-            }
-        }, 34);
-        setTimeout(() => {
-            spamsPath.forEach((btn, k) => {
-                setTimeout(() => {
-                    btn.classList.add('go');
-                }, 20 * k)
-            })
-        }, 1200);
-
-    }
-}
-preloaderStart();
 //sliders
 let miniCatlSld = [...document.querySelectorAll('.slider-photo.js-slider')];
 

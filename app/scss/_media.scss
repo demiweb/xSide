@@ -615,6 +615,26 @@
 }
 
 @media screen and (max-width: 625px) {
+  .btn.btn-download {
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0) !important;
+    position: relative;
+    padding: 5px;
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 25px;
+      height: 25px;
+
+      transform: translate(-50%, -50%);
+    }
+  }
+  .header {
+    background: #272424;
+  }
   .modal-cont .title {
     width: 100%;
   }
@@ -887,5 +907,25 @@
   }
   .hero__content p {
     bottom: 25px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .btn.btn-download {
+    width: 36px;
+    height: 36px;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0) !important;
+    position: relative;
+    padding: 4px;
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 25px;
+      height: 25px;
+
+      transform: translate(-50%, -50%);
+    }
   }
 }

@@ -1502,6 +1502,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
+  text-decoration: none !important;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -1518,6 +1519,28 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
     transition: background-color 0.4s ease, color 0.4s ease, border 0.4s ease;
     color: #E95627;
     background: #fff; }
+  .btn.btn-download::before {
+    width: 30px;
+    height: 30px;
+    margin-right: 12px;
+    display: inline-block;
+    content: '';
+    background: url("../img/pdf-icon.png") no-repeat center/100%;
+    -webkit-filter: invert(1);
+            filter: invert(1);
+    -webkit-transition: -webkit-filter 0.3s ease;
+    transition: -webkit-filter 0.3s ease;
+    -o-transition: filter 0.3s ease;
+    transition: filter 0.3s ease;
+    transition: filter 0.3s ease, -webkit-filter 0.3s ease; }
+  .btn.btn-download:hover::before {
+    -webkit-filter: invert(0);
+            filter: invert(0);
+    -webkit-transition: -webkit-filter 0.3s ease;
+    transition: -webkit-filter 0.3s ease;
+    -o-transition: filter 0.3s ease;
+    transition: filter 0.3s ease;
+    transition: filter 0.3s ease, -webkit-filter 0.3s ease; }
 
 .our-works {
   width: 100%;
@@ -2377,6 +2400,98 @@ div[data-anim~=base] {
   -webkit-transition: background-color 0.3s ease;
   -o-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease; }
+
+.lang {
+  margin-right: 4%;
+  position: relative;
+  padding: 15px 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-left: 4%; }
+  .lang span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    padding: 6px 14px;
+    display: inline-block;
+    width: 61px;
+    cursor: pointer;
+    position: relative; }
+    .lang span::after {
+      width: 6px;
+      height: 6px;
+      border: 1px solid #fff;
+      border-left: none;
+      border-top: none;
+      display: inline-block;
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 0;
+      -webkit-transform: translate(0, -60%) rotate(45deg);
+          -ms-transform: translate(0, -60%) rotate(45deg);
+              transform: translate(0, -60%) rotate(45deg); }
+    .lang span img {
+      width: 100%;
+      height: auto; }
+    .lang span.open + ul {
+      opacity: 1;
+      pointer-events: auto; }
+  .lang ul {
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease;
+    -o-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start; }
+    .lang ul li {
+      width: 100%;
+      margin: 0 !important;
+      display: inline-block; }
+      .lang ul li a {
+        height: auto;
+        line-height: initial;
+        padding: 5px 11px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        width: 55px;
+        background: #fff;
+        border: 1px solid #E95627;
+        -webkit-transition: background-color 0.3s ease;
+        -o-transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease; }
+        .lang ul li a img {
+          width: 100%;
+          height: auto; }
+        .lang ul li a.active, .lang ul li a:hover {
+          background: #E95627;
+          -webkit-transition: background-color 0.3s ease;
+          -o-transition: background-color 0.3s ease;
+          transition: background-color 0.3s ease; }
+      .lang ul li:last-child a {
+        border-top: none; }
 
 .header-container {
   padding: 24px 0;
@@ -4626,6 +4741,24 @@ div[data-anim~=base] {
     line-height: 1.2; } }
 
 @media screen and (max-width: 625px) {
+  .btn.btn-download {
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0) !important;
+    position: relative;
+    padding: 5px; }
+    .btn.btn-download::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 25px;
+      height: 25px;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%); }
+  .header {
+    background: #272424; }
   .modal-cont .title {
     width: 100%; }
   .svg-cont {
@@ -4823,3 +4956,21 @@ div[data-anim~=base] {
     width: calc(100% - 90px); }
   .hero__content p {
     bottom: 25px; } }
+
+@media screen and (max-width: 425px) {
+  .btn.btn-download {
+    width: 36px;
+    height: 36px;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0) !important;
+    position: relative;
+    padding: 4px; }
+    .btn.btn-download::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 25px;
+      height: 25px;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%); } }
