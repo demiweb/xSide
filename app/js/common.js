@@ -55,17 +55,17 @@ function allLozadImg() {
 }
 
 allLozadImg();
-function scrollScroll() {
-    if (window.innerWidth > 1000) {
-        const scroll2s = new Scrooth({
-            element: window,
-            strength: 12,
-            acceleration: 1.05,
-            deceleration: 0.975
-        });
-    }
-}
-scrollScroll();
+// function scrollScroll() {
+//     if (window.innerWidth > 1000) {
+//         const scroll2s = new Scrooth({
+//             element: window,
+//             strength: 12,
+//             acceleration: 1.05,
+//             deceleration: 0.975
+//         });
+//     }
+// }
+// scrollScroll();
 let preloaderBlock = document.querySelector('.preloader');
 let spamsPath = [...document.querySelectorAll('.svg-cont svg .spam')];
 function preloaderStart() {
@@ -105,6 +105,7 @@ preloaderStart();
 let linkBtn = [...document.querySelectorAll('.open-form')];
 let modalWindow = [...document.querySelectorAll('.modal-window')];
 let modalClose = [...document.querySelectorAll('.modal-close')];
+let modalCont = [...document.querySelectorAll('.modal-container')];
 
 function openModal() {
     if (modalWindow.length) {
@@ -119,7 +120,17 @@ function openModal() {
         modalClose.forEach((btn) => {
             btn.addEventListener('click', () => {
                 modalWindow[0].classList.remove('visible');
-                document.body.classList.add('remove');
+                document.body.classList.remove('no-scroll');
+            })
+        });
+        modalCont.forEach((btn) => {
+            btn.querySelector('.modal-cont').addEventListener('click', (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+            });
+            btn.addEventListener('click', () => {
+                modalWindow[0].classList.remove('visible');
+                document.body.classList.remove('no-scroll');
             })
         })
     }
